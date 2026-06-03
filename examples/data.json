@@ -1,0 +1,26 @@
+{
+  "name": "Mi Pincel",
+  "author": "Eralex",
+  "engine": "pixel",
+  "category": "pen",
+  "format": "tzbrush-v1",
+  "params": {
+    "radius": 20.0,
+    "opacity": 1.0,
+    "hardness": 0.8,
+    "spacing": 0.3,
+    "flow": 1.0,
+    "jitter": 0.0,
+    "rotation": 0.0,
+    "ellipticalRatio": 1.0,
+    "ellipticalAngle": 90.0,
+  },
+  "modifiers": {
+    "eraser": false,
+    "blendMode": "normal",
+    "rotationRandom": 0.0,
+    "rotationZoom": 0.0,
+    "sizePressure": false,
+    "opacityPressure": false
+  },
+}

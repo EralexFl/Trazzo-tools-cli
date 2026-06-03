@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trazzo-tools"
+version = "0.1.0"
+description = "trazzo-tools is a CLI app built with Click"
+requires-python = ">=3.10"
+dependencies = ["click", "peewee", "python-dotenv", "rich"]
+optional-dependencies.dev = ["pytest"]
+
+[project.scripts]
+trazzo-tools = "trazzo_tools.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
