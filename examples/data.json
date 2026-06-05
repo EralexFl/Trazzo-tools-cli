@@ -1,5 +1,5 @@
 {
-  "name": "Mi Pincel",
+  "name": "Pen",
   "author": "Eralex",
   "engine": "pixel",
   "category": "pen",
@@ -13,14 +13,14 @@
     "jitter": 0.0,
     "rotation": 0.0,
     "ellipticalRatio": 1.0,
-    "ellipticalAngle": 90.0,
+    "ellipticalAngle": 90.0
   },
   "modifiers": {
     "eraser": false,
     "blendMode": "normal",
-    "rotationRandom": 0.0,
-    "rotationZoom": 0.0,
+    "randomRotation": 0.0,
+    "randomZoom": 0.0,
     "sizePressure": false,
     "opacityPressure": false
-  },
+  }
 }

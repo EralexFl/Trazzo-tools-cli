@@ -57,8 +57,8 @@ class BrushModifiers(BaseModel):
     )
     eraser = BooleanField(default=False)
     blendMode = TextField(default="normal")
-    rotationRandom = FloatField(default=0.0)
-    rotationZoom = FloatField(default=0.0)
+    randomRotation = FloatField(default=0.0)
+    randomZoom = FloatField(default=0.0)
     sizePressure = BooleanField(default=False)
     opacityPressure = BooleanField(default=False)
 
@@ -107,3 +107,13 @@ def load_db(file: str):
     db.init(file, pragmas={"foreign_keys": DB_FOREIGN_KEYS})
     db.connect()
     return db
+
+def edit_db():
+    db.begin()
+
+def save_db():
+    db.commit()
+
+def close_db():
+    if not db.is_closed():
+        db.close() 

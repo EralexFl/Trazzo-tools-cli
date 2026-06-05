@@ -21,8 +21,8 @@ class BrushParams:
 class BrushModifiers:
     eraser: bool = False
     blendMode: str = "normal"
-    rotationRandom: float = 0.0
-    rotationZoom: float = 0.0
+    randomRotation: float = 0.0
+    randomZoom: float = 0.0
     sizePressure: bool = False
     opacityPressure: bool = False
 
