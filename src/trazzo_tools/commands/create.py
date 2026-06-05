@@ -1,7 +1,9 @@
+import click
 from trazzo_tools.classes.classes import TzBrush
 import trazzo_tools.classes.dbClasses as dbClasses
 from datetime import datetime
 import os
+EXTENSION = os.getenv("EXTENSION")
 
 def create(data: str, preview: str, texture: str = None, output: str = ".") -> None:
     path = output or "."
@@ -11,6 +13,10 @@ def create(data: str, preview: str, texture: str = None, output: str = ".") -> N
 
     brush_data = TzBrush.from_json(data)
     name = brush_data.name
+
+    if os.path.exists(os.path.join(path, f"{name}.{EXTENSION}")):
+        click.echo(f"Brush {name} already exists")
+        return
 
     dbClasses.init_db(os.path.join(path, name))
     brush = dbClasses.Brush.create(

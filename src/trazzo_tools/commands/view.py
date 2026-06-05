@@ -34,8 +34,8 @@ def view(file: str, output: str = "."):
             modifiers=BrushModifiers(
                 eraser=modifiers.eraser,
                 blendMode=modifiers.blendMode,
-                rotationRandom=modifiers.rotationRandom,
-                rotationZoom=modifiers.rotationZoom,
+                randomRotation=modifiers.randomRotation,
+                randomZoom=modifiers.randomZoom,
                 sizePressure=modifiers.sizePressure,
                 opacityPressure=modifiers.opacityPressure,
             ),
