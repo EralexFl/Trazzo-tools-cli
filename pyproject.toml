@@ -4,10 +4,22 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trazzo-tools"
-version = "0.1.0"
-description = "trazzo-tools is a CLI app built with Click"
+version = "1.0.0"
+description = "CLI for creating, exporting, viewing, and editing Trazzo brush archives (.tzb)"
+readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["click", "peewee", "python-dotenv", "rich"]
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "EralexFl" }
+]
+keywords = ["cli", "brush", "trazzo", "tzb"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+]
+dependencies = ["click", "peewee", "python-dotenv", "rich", "build"]
 optional-dependencies.dev = ["pytest"]
 
 [project.scripts]

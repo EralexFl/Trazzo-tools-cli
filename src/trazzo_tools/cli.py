@@ -38,7 +38,7 @@ help_edit = f"""Edit .{EXTENSION.upper()} file metadata and brush parameters.
 @click.group(context_settings={"help_option_names": ["-h", "--help"]}, help=help_main)
 def main(): pass
 
-@main.command("create", help=help_create, epilog="Example: trazzo-tools create --data brush.json --preview preview.png --texture texture.png --output output/")
+@main.command("create", help=help_create, epilog="Example: trazzo-tools create --data brush.json --preview preview.png [--texture texture.png] [--output ./output]")
 @click.option("--data","-d", type=click.Path(exists=True, dir_okay=False),
     required=True,help="Path to JSON data file.")
 @click.option("--preview","-p",type=click.Path(exists=True, dir_okay=False),
@@ -51,7 +51,7 @@ def create_command(data: str, preview: str, texture: str = None, output: str = "
     create(data, preview, texture, output);
 
 
-@main.command("export", help=help_export, epilog=f"Example: trazzo-tools export brush.{EXTENSION} --output ./output")
+@main.command("export", help=help_export, epilog=f"Example: trazzo-tools export brush.{EXTENSION} [--output ./output]")
 @click.argument("file", required=False, default=None, metavar="FILE")
 @click.option("--output","-o", type=click.Path(dir_okay=True),
     required=False, default=".", help="Path to output. Default is current directory.")
