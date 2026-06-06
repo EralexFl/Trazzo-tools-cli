@@ -10,13 +10,15 @@ def edit(file: str, visual_mode: bool = False, **kwargs):
     brush = dbClasses.Brush.get_by_id(1)
     params = dbClasses.BrushParams.get_by_id(1)
     modifiers = dbClasses.BrushModifiers.get_by_id(1)
+    texture, _ = dbClasses.BrushTexture.get_or_create(brush=brush)
+    preview, _ = dbClasses.BrushPreview.get_or_create(brush=brush)
 
     if visual_mode:
         brush.name = click.prompt("Name:", default=brush.name)
         brush.category = click.prompt("Category:", default=brush.category)
         brush.engine = click.prompt("Engine:", default=brush.engine)
         brush.author = click.prompt("Author:", default=brush.author)
-        dbClasses.TzbMeta.get_or_create(key="author", value=brush.author)
+        dbClasses.TzbMeta.replace(key="author", value=brush.author).execute()
 
         params.radius = click.prompt("Radius:", default=params.radius)
         params.opacity = click.prompt("Opacity:", default=params.opacity)
@@ -34,6 +36,18 @@ def edit(file: str, visual_mode: bool = False, **kwargs):
         modifiers.randomZoom = click.prompt("Rotation zoom:", default=modifiers.randomZoom)
         modifiers.sizePressure = click.prompt("Size pressure:", default=modifiers.sizePressure)
         modifiers.opacityPressure = click.prompt("Opacity pressure:", default=modifiers.opacityPressure)
+
+        pathTexture = click.prompt("Texture:", default="")
+        if pathTexture:
+            with open(pathTexture, "rb") as f:
+                texture.data = f.read()
+            texture.save()
+
+        pathPreview = click.prompt("Preview:", default="")
+        if pathPreview:
+            with open(pathPreview, "rb") as f:
+                preview.data = f.read()
+            preview.save()
     else:
         for key, value in kwargs.items():
             if value is None: 
@@ -45,6 +59,14 @@ def edit(file: str, visual_mode: bool = False, **kwargs):
                 setattr(params, key, value)
             elif key in modifiers._meta.fields:
                 setattr(modifiers, key, value)
+            elif key == "preview":
+                with open(value, "rb") as f:
+                    preview.data = f.read()
+                preview.save()
+            elif key == "texture":
+                with open(value, "rb") as f:
+                    texture.data = f.read()
+                texture.save()
 
     brush.updated_at = datetime.now()
     
