@@ -89,6 +89,10 @@ def view_command(file: str, output: str):
 @click.option("--random-zoom",          default=None, type=float,  help="Random zoom")
 @click.option("--size-pressure/--no-size-pressure",     default=None, help="Size pressure")
 @click.option("--opacity-pressure/--no-opacity-pressure", default=None, help="Opacity pressure")
+
+@click.option("--preview", default=None, type=click.Path(exists=True), help="Preview")
+@click.option("--texture", default=None, type=click.Path(exists=True), help="Texture")
+
 def edit_command(file: str, **kwargs):
     has_flag = any(v is not None for v in kwargs.values())
     edit(file, not has_flag, **kwargs)

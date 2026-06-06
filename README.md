@@ -93,6 +93,8 @@ trazzo-tools edit brush.tzb --name "New Name" --radius 35.0
 | `--rotation-zoom` | float | Rotation zoom |
 | `--size-pressure` / `--no-size-pressure` | bool | Size pressure |
 | `--opacity-pressure` / `--no-opacity-pressure` | bool | Opacity pressure |
+| `--preview` | string | Path to preview image |
+| `--texture` | string | Path to texture image |
 
 ---
 

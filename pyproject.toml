@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trazzo-tools"
-version = "1.0.0"
+version = "1.0.1"
 description = "CLI for creating, exporting, viewing, and editing Trazzo brush archives (.tzb)"
 readme = "README.md"
 requires-python = ">=3.10"
