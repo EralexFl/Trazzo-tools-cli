@@ -8,11 +8,44 @@ CLI for creating, exporting, viewing, and editing Trazzo brush archives (`.tzb`)
 
 ## Installation
 
+### From PyPI (stable)
+
 ```bash
 pip install trazzo-tools
 ```
 
 After installation, the `trazzo-tools` command will be available in your terminal.
+
+### Local development
+
+Clone the repository and install in editable mode:
+
+```bash
+git clone https://github.com/EralexFl/trazzo-tools-cli.git
+cd trazzo-tools-cli
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
+## Environment variables
+
+The project loads configuration from a `.env` file in the project root (via `python-dotenv`). You can create this file or export the variables directly:
+
+```bash
+# .env
+EXTENSION=tzb
+FORMAT_VERSION=trazzoBrush-V1
+DB_JOURNAL_MODE=wal
+DB_FOREIGN_KEYS=1
+```
+
+| Variable | Default | Description |
+|---|---|---|
+| `EXTENSION` | `tzb` | File extension for brush archives |
+| `FORMAT_VERSION` | `trazzoBrush-V1` | Format version identifier stored in the archive |
+| `DB_JOURNAL_MODE` | `wal` | SQLite journal mode (e.g. `wal`, `delete`, `off`) |
+| `DB_FOREIGN_KEYS` | `1` | Enable (`1`) or disable (`0`) SQLite foreign key enforcement |
 
 ## Commands
 
